@@ -1,3 +1,4 @@
+import json
 INTERVALS = [1, 3, 7, 21]
 
 
@@ -13,4 +14,9 @@ def next_interval(current, correct):
             if INTERVALS[w]==current:
                 return INTERVALS[w+1]
                
-            
+def load_questions(path):
+    try:
+        with open(path,encoding="utf-8") as f:
+            return json.load(f) 
+    except FileNotFoundError:
+        return []
