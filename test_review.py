@@ -1,3 +1,4 @@
+import pytest 
 from review import next_interval
 
 
@@ -9,3 +10,8 @@ def test_wrong_from_7():
     assert next_interval(7, False) == 1
 def test_correct_from_21():
     assert next_interval(21, True) == None
+
+def test_unknown_interval():
+    with pytest.raises(ValueError):
+        next_interval(5, True)
+
